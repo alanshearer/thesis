@@ -8,6 +8,7 @@ Le tecnologie elencate nel capitolo \ref{tecnologie}, sono tutte di interesse ap
 \section{Metodologie di sviluppo agili}
 Con il termine \textit{metodologia agile} si intende un insieme di metodi di sviluppo software basati sullo sviluppo iterativo ed incrementale, in cui i requisiti e le soluzioni evolvono attraverso una collaborazione tra team capaci di organizzarsi autonomamente e con esperienze e conoscenze diverse.
 Le metodologie agili sono contrapposte alle metodologie \textit{pesanti} e \textit{iterative} poiché promuovono una pianificazione adattabile, uno sviluppo e una consegna del software evolutivi, un approccio iterativo, ed incoraggiano ad una risposta al cambiamento rapida e flessibile.
+
 Le metodologie agili sono state introdotte ufficialmente nel 2001 dal \textit{Manifesto Agile}(\url{http://agilemanifesto.org/}), un documento dell'\textit{Agile Alliance}, l'associazione che ha permesso la diffusione su ampia scala di tali metodologie.
 Il Manifesto Agile riporta quanto segue:
 \begin{quotation}
@@ -20,20 +21,32 @@ We are uncovering better ways of developing software by doing it and helping oth
 \end{itemize}
 That is, while there is value in the items on the right, we value the items on the left more.
 \end{quotation}
-Risulta abbastanza chiaro che si debbano favorire le interazioni tra le persone piuttosto che i processi e gli strumenti; lo sviluppo di software funzionante piuttosto che una documentazione esaustiva; la collaborazione con il cliente piuttosto che la negoziazione del contratto; rispondere al cambiamento piuttosto che seguire strenuamente le pianificazioni.
+I metodi agili quindi preferiscono la comunicazione in tempo reale, preferibilmente faccia a faccia, a quella scritta (documentazione). Il team agile è composto da tutte le persone necessarie per terminare il progetto software. Come minimo il team deve includere i programmatori ed i loro clienti. (Con clienti si intendono le persone che definiscono come il prodotto dovrà essere fatto. Possono essere dei Product Manager, dei Business Analysts, o i clienti finali). L'obiettivo è la piena soddisfazione del cliente e non solo l'adempimento di un contratto. 
+L'uso di queste metodologia, inoltre, serve ad abbattere i costi di sviluppo del software e a ridurre al minimo la parte di progettazione che spesso era quella più dispendiosa. Essa è esplosa proprio in concomitanza con la crisi successiva al boom di Internet prendendo spunto dai metodi applicati in piccole software house. Sotto questo nome si raggruppano tecniche come Extreme Programming, SCRUM, Feature Driven Development, DSDM, Disciplined Agile Delivery, Crystal e Lean Software Development.
+
+\subsection{Processi di sviluppo agile}
+Così come per i processi di sviluppo tradizionali, anche durante lo sviluppo di software mediante metodologie agili, ci sono delle fasi predefinite: analisi dei requisiti, progettazione, sviluppo e testing. La differenza è che ad ogni iterazione lo sviluppatore ridefinisce e rielabora queste fasi.
+I requisiti sono, ad ogni iterazione, approfonditi e migliorati, così come è perfezionato il design. Inoltre è dato molta importanza alla rifattorizzazione, ovvero si modifica la struttura interna di porzioni di codice senza modificarne il comportamento esterno, così da migliorarne la leggibilità ed avere sempre codice di qualità.
+Il testing, nell'Agile, riveste un ruolo fondamentale, poiché sono previsti sia gli \textit{Acceptance Test}, ovvero test \textbf{black box} che rappresentano dei risultati attesi dal sistema.
+Inoltre vi è il Test Driven Development (TDD), ovvero un modello di sviluppo preceduto dalla stesura di test automatici.
+
+In figura \ref{agiledevelopment} vi è una rappresentazione del processo di sviluppo agile.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.23]{imgs/agiledevelopment.jpg}
+\caption{Processo di sviluppo agile\label{agiledevelopment}} 
+\end{center}
+\end{figure}
 
 La gran parte dei metodi agili tenta di ridurre il rischio di fallimento sia in termini economici, poiché si ha la possibilità di stabilire un tetto di spese limitate che è negoziato frequentemente e monitorato su base costante, sia inteso come forte riduzione del rischio che il cliente si ritrovi in mano funzionalità che non utilizzerà mai o molto raramente. Tutto ciò si può ottenere sviluppando il software in finestre di tempo limitate chiamate \textit{iterazioni} che, in genere, durano qualche settimana.
-I fondamenti dei metodi agili sono quindi i seguenti:
+I fondamenti dei processi agili sono i seguenti:
 \begin{itemize}
 \item \textbf{iteratività}: prescrive che il processo di sviluppo debba essere ciclico, in modo che le varie fasi siano ripetute più volte in momenti temporali diversi. Questo permette di gestire in modo agile i cambiamenti delle specifiche durante il processo, e non costringe ad aspettare il rilascio del prodotto per poi intraprendere subito una fase di manutenzione, come invece accade con i metodi tradizionali;
 \item \textbf{incrementalità}: è il continuo rilascio di versioni parziali del prodotto, le quali inglobano modifiche ed aggiornamenti risultati come necessari alle fasi precedenti. Questo meccanismo permette di rilevare i feedback del committente durante il processo di sviluppo e di adeguare opportunamente il software. In alcuni casi il software rilasciato nelle fasi intermedie è sottoposto anche agli utenti finali, in modo da coglierne le esigenze;
 \item \textbf{auto-organizzazione}: il team è lasciato libero di organizzarsi e di adottare di volta in volta le strategie più opportune. Questo favorisce la creatività degli sviluppatori, stimolandoli a trovare soluzioni innovative ai problemi che si presentano;
 \item \textbf{emergenza}: bisogna affrontare difficoltà ed imprevisti quando essi si presentano, senza cercare di predeterminarli o una prevenirli. Il principio tradizionale secondo cui un progetto solido deve tener conto dei possibili sviluppi futuri del software viene sovvertito, con la motivazione che si considera inutile spendere tempo e denaro per cercare di prevedere evoluzioni che potrebbero essere disattese.
 \end{itemize}
-
-I metodi agili quindi preferiscono la comunicazione in tempo reale, preferibilmente faccia a faccia, a quella scritta (documentazione). Il team agile è composto da tutte le persone necessarie per terminare il progetto software. Come minimo il team deve includere i programmatori ed i loro clienti. (Con clienti si intendono le persone che definiscono come il prodotto dovrà essere fatto. Possono essere dei Product Manager, dei Business Analysts, o i clienti finali). L'obiettivo è la piena soddisfazione del cliente e non solo l'adempimento di un contratto. 
-L'uso di queste metodologia, inoltre, serve ad abbattere i costi di sviluppo del software e a ridurre al minimo la parte di progettazione che spesso era quella più dispendiosa. Essa è esplosa proprio in concomitanza con la crisi successiva al boom di Internet prendendo spunto dai metodi applicati in piccole software house. Sotto questo nome si raggruppano tecniche come Extreme Programming, SCRUM, Feature Driven Development, DSDM, Disciplined Agile Delivery, Crystal e Lean Software Development.
-
 \section{Scelte progettuali}
 \subsection{Piattaforma client}
 Nell'ambito della localizzazione, la scelta è caduta sulla tecnologia \textbf{GPS}, poichè:
