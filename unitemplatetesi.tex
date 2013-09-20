@@ -1,0 +1,253 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,oneside,italian]{book}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper]{geometry}
+
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3.5cm,rmargin=2.5cm,headheight=2cm,headsep=0.5cm}
+\pagestyle{empty}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage[italian]{babel}    % utilizza la lingua italiana come predefinita
+\usepackage{pdfpages}
+
+% Questi pacchetti servono per usare font ams per le formule
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{attrib}
+
+\usepackage{setspace}
+\doublespacing
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=false,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+%\usepackage{breakurl}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%
+% OLD FUNCTION FILE BEGIN
+% E' una reimplementazione dell'ambiente verbatim che previene l'overflow
+% della memoria per lunghi testi.
+\usepackage{verbatim}
+\usepackage{alltt}
+
+\usepackage[section]{placeins}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{tikz}
+
+
+
+\usepackage{listings}
+
+\usepackage{url}
+\urlstyle{same}
+
+
+%\usepackage{bera}% optional: just to have a nice mono-spaced font
+\usepackage{xcolor}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\usepackage[scaled]{beramono}
+\newcommand\Small{\fontsize{9}{9.2}\selectfont}
+\newcommand*\LSTfont{\Small\ttfamily\SetTracking{encoding=*}{-60}\lsstyle}
+
+\lstdefinelanguage{JSON}{
+    basicstyle=\LSTfont,
+    %numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\lstdefinelanguage{YAML}[]{XML}{
+    basicstyle=\LSTfont,
+    %numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{-}{{{\color{punct}-}}}{1}
+      {>}{{{\color{punct}>}}}{1}
+      {<}{{{\color{punct}<}}}{1}
+      {|}{{{\color{punct}|}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+\lstdefinelanguage{MYXML}[]{XML}{
+    basicstyle=\LSTfont,
+    %numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+}
+
+
+
+% === Integrazione delle figure ===========================
+% Il package graphicx permette di inserire figure all'interno dei documetni LaTeX.
+% Con l'opzione [draft] vengono visualizzati i soli riquadri delle figure. Questa
+% opzione � utile per eseguire una compilazione veloce per verificare il posizionamento
+% delle figure. 
+\usepackage{graphics}
+%\usepackage[draft]{graphicx}
+\usepackage{graphicx}
+
+% Con questo comando si dice a LaTex dove sono memorizzate le figure
+\graphicspath{{./imgs/}}
+
+% Usare le sottofigure e figure flottanti
+%\usepackage{subfigure}
+
+
+% === Regolazione dei margini =============================
+% Si regolano i margini in modo da centrare orizzontalmente il testo nella
+% pagina
+\usepackage{indentfirst}
+%\parindent=1em
+\usepackage{microtype}
+\frenchspacing
+\addtolength{\oddsidemargin}{20pt}
+\addtolength{\evensidemargin}{-20pt}
+
+% Consente di definire in modo flessible note e titoli
+\usepackage{fancyhdr}
+
+% Permette di creare celle che spaziano su pi� righe
+\usepackage{multirow}
+
+%%%%%%%%%%%%%%%%%%%
+% OLD FUNCTION FILE END
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\@ifundefined{date}{}{\date{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% INTESTAZIONI
+% -----------------
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\cfoot{\thepage}
+\chead{\includegraphics[width=\textwidth]{unitemplate/intestazione.pdf}}
+
+
+% SFONDO
+% ----------
+
+\usepackage{eso-pic,graphicx}
+\makeatletter
+\newcommand\BackgroundPicture[2]{
+\setlength{\unitlength}{1pt}
+\put(0,\strip@pt\paperheight){
+\parbox[t][\paperheight]{\paperwidth}{
+\vfill
+\centering\includegraphics[angle=#2]{#1}
+\vfill
+}
+}
+}
+\makeatother
+
+\makeatother
+
+\begin{document}
+
+
+\begin{frontmatter}
+
+\includepdf[pages=-]{unitemplate/frontespizio}
+
+\AddToShipoutPicture{\BackgroundPicture{unitemplate/logo.png}{0}}
+
+\tableofcontents
+
+\listoffigures
+
+\end{frontmatter}
+
+
+
+\begin{mainmatter}
+
+
+
+
+\input{introduzione.tex} \addcontentsline{toc}{chapter}{Introduzione}
+
+\input{capitolo1.tex}
+
+\input{capitolo2.tex}
+
+\input{capitolo3.tex}
+
+\input{capitolo4.tex}
+
+\input{capitolo5.tex}
+
+\input{capitolo6.tex}
+
+\input{capitolo7.tex}
+
+\input{conclusioni.tex} \addcontentsline{toc}{chapter}{Conclusioni}
+
+\input{ringraziamenti.tex}
+
+\end{mainmatter}
+
+\begin{backmatter}
+
+\input{bibliografia.tex}
+
+\end{backmatter}
+\end{document}

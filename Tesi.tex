@@ -1,0 +1,387 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template Tesi 												%
+% per il corso di Laurea in 						%
+% Ingegneria della Sicurezza						%
+%																				%
+% Gennaio 2011 - Prof. M. Scarpiniti		%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preambolo
+
+% === Impostazione del tipo di documento da creare ========
+% tipo di documento book, dimensione del font 12pt, formato della pagina A4.
+% La specifica del formato della pagina consente a Latex di calcolare la dimensione
+% e il numero di linee per pagina, nonch� di centrare il testo sia orizzontalmente che
+% verticalmente.
+
+% Non viene specificato se il testo debba essere formattato nella pagina: ci�
+% vuol dire che il testo sar� messo su un unica colonna, come di default.
+
+% Non � specificato come debbano essere stampate le pagine, questo vuol dire che
+% si adotta l'opzione twoside di default per i book, cio� i numeri di pagina
+% appaiono sulla sinistra per le pagine pari e sulla destra per le pagine dispari
+
+% Non � specificata nessuna opzione di inizio di capitolo su pagina, questo vuol
+% dire che si adotta lo stile di default per i book, cio� i capitoli iniziano nella
+% pagina destra
+%\documentclass[12pt,a4paper]{book}
+\documentclass[11pt,a4paper,oneside]{book}
+
+% Permette di passare da un certo numero di colonne ad un altro senza iniziare
+% una nuova pagina. Per esempio � possibile passare da una colonna a 2 e poi
+% di nuovo ad una all'interno della stessa pagina.
+%\usepackage{multicol}
+
+% === Impostazione dei font ===============================
+% Queste impostazioni permettono di usare la lingua italiana in LaTeX.
+% E' necessario comunque cambiare anche le regole di ritorno a capo, cosa
+% che va fatta tramite l'utility "MiKTeX Options".
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}	%sostituisce i font raster con font vettoriali
+\usepackage[scaled]{beramono}  % implementa il font palatino
+\usepackage{palatino}
+
+\usepackage[italian]{babel}    % utilizza la lingua italiana come predefinita
+
+
+% Questi pacchetti servono per usare font ams per le formule
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{attrib}
+
+% Questi pacchetti servono per rendere più piacevole la classe book
+\usepackage{lettrine}   % per i capolettere
+\usepackage[Conny]{fncychap}   % per lo stile dell'itestazione dei capitoli
+%\usepackage[Lenny]{fncychap}    % per cambiare gli header dei capitoli
+%\usepackage[Bjornstrup]{fncychap}   % per lo stile dell'itestazione dei capitoli
+%\usepackage[Bjarne]{fncychap}   % per lo stile dell'itestazione dei capitoli
+
+
+% E' una reimplementazione dell'ambiente verbatim che previene l'overflow
+% della memoria per lunghi testi.
+\usepackage{verbatim}
+\usepackage{alltt}
+
+\usepackage[section]{placeins}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{tikz}
+
+
+\usepackage{eso-pic,graphicx}
+\makeatletter
+\newcommand\BackgroundPicture[2]{
+\setlength{\unitlength}{1pt}
+\put(0,\strip@pt\paperheight){
+\parbox[t][\paperheight]{1.75\textwidth}{
+\vfill
+\vfill
+\vfill
+\centering\includegraphics[scale=0.3, angle=#2]{#1}
+\vfill
+
+}
+}
+}
+\makeatother
+
+
+\makeatletter
+\newcommand\TitlePagePicture[2]{
+\setlength{\unitlength}{1pt}
+\put(0,\strip@pt\paperheight){
+\parbox[t][\paperheight]{1.74\textwidth}{
+\vfill
+\centering\includegraphics[scale=0.2, angle=#2]{#1}
+\vfill
+\vfill
+\vfill
+\vfill
+\vfill
+\vfill
+\vfill
+\vfill
+}
+}
+}
+\makeatother
+
+
+
+\usepackage{listings}
+
+\usepackage{url}
+\urlstyle{same}
+
+
+%\usepackage{bera}% optional: just to have a nice mono-spaced font
+\usepackage{xcolor}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\usepackage[scaled]{beramono}
+\newcommand\Small{\fontsize{9}{9.2}\selectfont}
+\newcommand*\LSTfont{\Small\ttfamily\SetTracking{encoding=*}{-60}\lsstyle}
+
+\lstdefinelanguage{JSON}{
+    basicstyle=\LSTfont,
+    %numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\lstdefinelanguage{YAML}[]{XML}{
+    basicstyle=\LSTfont,
+    %numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{-}{{{\color{punct}-}}}{1}
+      {>}{{{\color{punct}>}}}{1}
+      {<}{{{\color{punct}<}}}{1}
+      {|}{{{\color{punct}|}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+\lstdefinelanguage{MYXML}[]{XML}{
+    basicstyle=\LSTfont,
+    %numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+}
+
+% === Integrazione delle figure ===========================
+% Il package graphicx permette di inserire figure all'interno dei documetni LaTeX.
+% Con l'opzione [draft] vengono visualizzati i soli riquadri delle figure. Questa
+% opzione � utile per eseguire una compilazione veloce per verificare il posizionamento
+% delle figure. 
+\usepackage{graphics}
+%\usepackage[draft]{graphicx}
+\usepackage{graphicx}
+
+% Con questo comando si dice a LaTex dove sono memorizzate le figure
+\graphicspath{{./imgs/}}
+
+% Usare le sottofigure e figure flottanti
+%\usepackage{subfigure}
+\usepackage{floatflt}
+
+% Permette di cambiare lo stile del carattere usato per le didascalie
+\usepackage[font=small,labelfont=bf,textfont=bf]{caption}
+
+% === Regolazione dei margini =============================
+% Si regolano i margini in modo da centrare orizzontalmente il testo nella
+% pagina
+\usepackage{indentfirst}
+%\parindent=1em
+\usepackage{microtype}
+\frenchspacing
+\addtolength{\oddsidemargin}{20pt}
+\addtolength{\evensidemargin}{-20pt}
+
+% Consente di definire in modo flessible note e titoli
+\usepackage{fancyhdr}
+
+% Permette di creare celle che spaziano su pi� righe
+\usepackage{multirow}
+
+
+
+
+
+
+
+
+
+
+
+\usepackage{setspace}
+\doublespacing
+%\markboth{headings}{headings}
+%\markboth{}{Tesi di Enrico Bencivenga}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% === Hyphenation: andare a capo =============================
+% Permette di spezzare le parole nel punto voluto
+% \hyphenation{non-Ga-us-sia-ni-ty di-men-sio-nal Mar-cin-kie-wicz}
+
+% === Creazione dell'indice analitico ========================
+% Permetta di stampare nell'indice analitico le parole evidenziate
+% dal comando \index{}
+% OPZIONALE
+% \usepackage{makeidx} 
+% \makeindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definizioni dei contatori per alcuni ambienti utili 
+
+\newcounter{lem}
+\newcounter{cor}
+\newcounter{pro}
+\newcounter{def}
+\newcounter{rem}
+\newcounter{examp} \setcounter{examp}{1}
+
+%----------------------------------------------------------
+% Definizioni di alcuni ambienti utili 
+\newtheorem{theorem}{Teorema}
+\newtheorem{algorithm}[theorem]{Algoritmo}
+\newtheorem{axiom}[theorem]{Assioma}
+\newtheorem{case}[theorem]{Caso}
+\newtheorem{conclusion}[theorem]{Conclusione}
+\newtheorem{corollary}[cor]{Corollario}
+\newtheorem{criterion}[theorem]{Criterio}
+\newtheorem{definition}[def]{Definizione}
+\newtheorem{exercise}[theorem]{Esercizio}
+\newtheorem{lemma}[lem]{Lemma}
+\newtheorem{notation}[theorem]{Notazione}
+\newtheorem{problem}[theorem]{Problema}
+\newtheorem{proposition}[pro]{Proposizione}
+\newtheorem{remark}[rem]{Osservazione}
+\newtheorem{solution}[theorem]{Soluzione}
+
+\newenvironment{proof}[1][Dimostrazione]{\textbf{#1. }}{\ \rule{0.5em}{0.5em}}
+\newenvironment{example}[1][Esempio]{\\\textbf{\textit{#1 \arabic{examp}}. } \refstepcounter{examp} \rm\line(1,0){300}\small\\}{\line(1,0){360}\normalsize\\ \\}
+
+
+
+\newcommand\Image[3][]{%
+  \tabular[b]{c}\includegraphics[#1]{#2}\\
+  \begin{tiny}
+  #3
+  \end{tiny}
+  \endtabular}
+
+%----------------------------------------------------------
+
+% Aggiunge i bookmark ed i collegamenti nel file pdf
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+	bookmarksnumbered=true,
+	linkcolor=black,
+	citecolor=black,
+	%pagecolor=black,
+	urlcolor=black,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Testo della tesi
+
+\begin{document}
+	%Con queto comando si pu� cambiare il modo in cui verranno nominate le
+	%figure. Di default � "Figura", qui viene cambiato in "Fig."
+	\renewcommand{\figurename}{Fig.}
+
+	% === Frontespizio =======================================
+	% formato della pagina: l'argomento empty sta ad indicare che sia le linee
+	% di testa che quelle di coda sono vuoti e non hanno numeri di pagina
+	\pagestyle{empty}
+	% Frontespizio: mediante il comando input si legge il frontespizio
+	\AddToShipoutPicture*{\TitlePagePicture{logounina.jpg}{0}}
+	\input{frontespizio}
+
+	% === Riassunto ==========================================
+	% formato della pagina: l'argomento plain sta ad indicare che le pagine
+	% verranno numerate in basso al centro
+	%\pagestyle{plain}
+	% \pagenumbering{arabic}
+
+	% === Indice =============================================
+  % \pagestyle{headings}
+  \tableofcontents
+  % Opzionali: Indice delle figure e delle tabelle
+  \listoffigures  \addcontentsline{toc}{chapter}{Elenco delle figure}
+  % \listoftables   \addcontentsline{toc}{chapter}{List of Tables}
+
+	% === Capitoli Tesi ======================================
+	\mainmatter
+	\pagestyle{headings}
+	\AddToShipoutPicture{\BackgroundPicture{logounina.jpg}{0}}
+
+
+	\input{introduzione} \addcontentsline{toc}{chapter}{Introduzione}
+	\input{capitolo1}
+	\input{capitolo2}
+	\input{capitolo3}
+    \input{capitolo4}
+    \input{capitolo5}
+    \input{capitolo6}
+    \input{capitolo7}
+  \input{conclusioni} \addcontentsline{toc}{chapter}{Conclusioni}
+
+	% === Bibliografia =======================================
+  \newpage
+  \bibliographystyle{plain}
+  \bibliography{bibliotesi}
+  \addcontentsline{toc}{chapter}{Bibliografia}
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+  
+	% === Appendici ==========================================
+	%\backmatter
+%	\appendix
+%	\input{appendiceA}
+	%\input{appendiceB}
+	% \input{appendiceC}
+	% \input{appendiceD}
+	%\input{simboli}
+	% Se si desidera inserie i ringraziamenti (Opzionale).
+	\backmatter 
+	\input{ringraziamenti} \addcontentsline{toc}{chapter}{Ringraziamenti}
+
+	% === Indice Analitico ===================================
+	% Opzionale	
+	% \printindex \clearpage{\pagestyle{empty}\cleardoublepage}   \addcontentsline{toc}{chapter}{Index}
+
+\end{document}
