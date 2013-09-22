@@ -5,8 +5,8 @@
 \label{progetto}
 
 In questo capitolo verrà discussa l'effettiva realizzazione del progetto, ovvero analisi dei requisiti, progettazione, sviluppo e testing, secondo le metodologie agili.
-
-Dopo la stesura del \textit{Project Charter} (Documento di inizio progetto), riportato per intero nell'appendice \ref{appendiceA}, si è proceduto alla definizione delle iterazioni, partendo naturalmente dall'\textit{iterazione 0}.
+Ogni progetto inizia con la stesura di un \textit{Project Charter} (Documento di inizio progetto), che, non essendo di interesse in questo contesto, viene qui tralasciato.
+Si è proceduto quindi con la definizione delle iterazioni, partendo, naturalmente, dall'\textit{iterazione 0}
 
 \section{Iterazione 0}
 
@@ -67,7 +67,7 @@ Nel caso di sistemi software destinati a dispositivi mobili, vengono introdotte 
 
 Nello studio dei requisiti della nostra applicazione, si possono definire i requisiti non funzionali di alto livello dell'applicazione client e del server, descritti rispettivamente nelle tabelle in figura \ref{nfrclient} e \ref{nfrserver}.
 
-\begin{figure}
+\begin{figure}[h!]
 \begin{center}
 \begin{tabular}[c]{|c|p{9cm}|}
 \hline
@@ -81,7 +81,7 @@ N. & Requisito\\ \hline
 \caption{Requisiti non funzionali dell'applicazione client\label{nfrclient}}
 \end{center}
 \end{figure}
-\begin{figure}
+\begin{figure}[h!]
 \begin{center}
 \begin{tabular}[c]{|c|p{9cm}|}
 \hline
@@ -93,48 +93,6 @@ N. & Requisito\\ \hline
 \caption{Requisiti non funzionali del server\label{nfrserver}}
 \end{center}
 \end{figure}
-\clearpage 
-
-\begin{figure}[h!]
-\subfloat[Home]{\label{mockuphome}\includegraphics[scale=0.29]{imgs/mockup/home.png}}
-\hspace{35mm}
-\subfloat[Visualizzazione posizione]{\label{mockupposition}\includegraphics[scale=0.29]{imgs/mockup/position.png}}
- \hspace{35mm}
-\subfloat[Visualizzazione punti di interesse]{\label{mockuppushpin}\includegraphics[scale=0.29]{imgs/mockup/pushpin.png}}
- \hspace{35mm}
-\subfloat[Visualizzazione menu]{\label{mockuptooltipmenu}\includegraphics[scale=0.29]{imgs/mockup/tooltipmenu.png}} 
-\caption{Sketch dell'applicazione, 1\label{sketch}}
-\end{figure}
-
-\begin{figure}[h!]
-\ContinuedFloat 
-\subfloat[Visualizzazione dettaglio]{\label{mockupdetails}\includegraphics[scale=0.29]{imgs/mockup/details.png}}
- \hspace{35mm}
-\subfloat[Invio feedback]{\label{mockupsendfeedback}\includegraphics[scale=0.29]{imgs/mockup/sendfeedback.png}}
- \hspace{35mm}
-
-\subfloat[Itinerario]{\label{mockupitinerario}\includegraphics[scale=0.29]{imgs/mockup/route.png}}
-
-\caption{Sketch dell'applicazione, 2\label{sketch}}
-\end{figure}
-
-
-\subsection{Modello dell'interfaccia utente}
-L'interfaccia utente è la porzione di software che interagisce direttamente con l'utente.
-In base ai requisiti non funzionali che caratterizzano l'interfaccia utente, si cerca di realizzare interfacce che tengano conto dell'usabilità.
-Vengono riportati di seguito alcuni sketches che costituiscono le schermate dell'applicazione (fig. \ref{sketch}).
-
-%\Image[width=0.35\linewidth]{imgs/mockup/home.png}{Home}\,
-%\Image[width=0.35\linewidth]{imgs/mockup/position.png}{Visualizzazione posizione}
-%
-%\Image[width=0.35\linewidth]{imgs/mockup/pushpin.png}{Visualizzazione punti di interesse}\,
-%\Image[width=0.35\linewidth]{imgs/mockup/tooltipmenu.png}{Visualizzazione menu contestuale}
-%
-%\Image[width=0.35\linewidth]{imgs/mockup/details.png}{Visualizzazione dettagli} \,
-%\Image[width=0.35\linewidth]{imgs/mockup/sendfeedback.png}{Invio feedback}
-%
-%\Image[width=0.35\linewidth]{imgs/mockup/route.png}{Itinerario}
-%\captionof{figure}{Sketch dell'applicazione\label{sketch}}
 
 
 \subsection{Modello di dominio}
@@ -155,14 +113,52 @@ Sono state individuate cinque entità fondamentali:
 \end{figure}
 Per modellare il dominio vengono qui utilizzate le \textit{Class Responsibility Collaborator (CRC) Cards}, come illustrato in figura \ref{crcmodel}.
 
+\subsection{Modello dell'interfaccia utente}
+L'interfaccia utente è la porzione di software che interagisce direttamente con l'utente.
+In base ai requisiti non funzionali che caratterizzano l'interfaccia utente, si cerca di realizzare interfacce che tengano conto dell'usabilità.
+Vengono riportati di seguito alcuni sketches che costituiscono le schermate dell'applicazione (fig. \ref{sketch}).
+\begin{figure}[h!]
+\subfloat[Home]{\label{mockuphome}\includegraphics[scale=0.29]{imgs/mockup/home.png}}
+\hspace{35mm}
+\subfloat[Visualizzazione posizione]{\label{mockupposition}\includegraphics[scale=0.29]{imgs/mockup/position.png}}
+ \hspace{35mm}
+\subfloat[Visualizzazione punti di interesse]{\label{mockuppushpin}\includegraphics[scale=0.29]{imgs/mockup/pushpin.png}}
+ \hspace{35mm}
+\subfloat[Visualizzazione menu]{\label{mockuptooltipmenu}\includegraphics[scale=0.29]{imgs/mockup/tooltipmenu.png}} 
+ \hspace{35mm}
 
+\caption{Sketch dell'applicazione, 1\label{sketch}}
+\end{figure}
 
+\begin{figure}[h!]
+\ContinuedFloat 
+\subfloat[Visualizzazione dettaglio]{\label{mockupdetails}\includegraphics[scale=0.29]{imgs/mockup/details.png}}
+ \hspace{35mm}
+\subfloat[Invio feedback]{\label{mockupsendfeedback}\includegraphics[scale=0.29]{imgs/mockup/sendfeedback.png}}
+ \hspace{35mm}
+
+\subfloat[Itinerario]{\label{mockupitinerario}\includegraphics[scale=0.29]{imgs/mockup/route.png}}
+
+\caption{Sketch dell'applicazione, 2\label{sketch}}
+\end{figure}
+
+%\Image[width=0.35\linewidth]{imgs/mockup/home.png}{Home}\,
+%\Image[width=0.35\linewidth]{imgs/mockup/position.png}{Visualizzazione posizione}
+%
+%\Image[width=0.35\linewidth]{imgs/mockup/pushpin.png}{Visualizzazione punti di interesse}\,
+%\Image[width=0.35\linewidth]{imgs/mockup/tooltipmenu.png}{Visualizzazione menu contestuale}
+%
+%\Image[width=0.35\linewidth]{imgs/mockup/details.png}{Visualizzazione dettagli} \,
+%\Image[width=0.35\linewidth]{imgs/mockup/sendfeedback.png}{Invio feedback}
+%
+%\Image[width=0.35\linewidth]{imgs/mockup/route.png}{Itinerario}
+%\captionof{figure}{Sketch dell'applicazione\label{sketch}}
 \clearpage
 
 \subsection{Pianificazione degli incrementi}
 Tramite il planning poker\footnote{Il planning poker è una tecnica basata sul consenso per stimare lo sforzo nel completare una user story. E' largamente utilizzata in nelle metodologie agili.}, è stato possibile dare una stima della complessità delle user stories.
 
-\begin{figure}
+\begin{figure}[h!]
 \begin{center}
 \begin{tabular}[c]{|c|p{7cm}|c|c|}
 \hline
@@ -193,7 +189,7 @@ N. & User story & Peso & Priorità\\
 In definitiva abbiamo la tabella in figura \ref{userstoriestable}, con stima e priorità delle user stories.
 Considerando una velocità di 15 punti per iterazione e tenendo conto delle priorità, è stato possibile pianificare 3 iterazioni, ciascuna della durata di due settimane, come illustrato in figura \ref{pianificazioneiterazioni}.
 Quindi, il progetto verrà sviluppato in sei settimane.
-\begin{figure}
+\begin{figure}[h!]
 \begin{center}
 
 \begin{tabular}[c]{|c|p{7cm}|c|c|}
@@ -214,7 +210,7 @@ Iterazione & User story\\ \hline
 
 
 \section{Iterazione 1}
-Nelle iterazione 1 viene effettuata l'analisi dei requisiti per tutti i requisiti corrispondenti alle user stories che ne fanno parte; vengono esplicitati i casi di test; vengono sviluppati modello dei dati e modelli architetturali, migliorando e ridefinendo, se necessario, i modelli dell'iterazione precedente; vengono mostrati i wireframe\footnote{ Un wireframe è una bozza di un applicazione. E' estremamente utile in quanto permette di individuare subito le dinamiche del progetto in termini di usabilità ed utilizzo pratico, i punti critici e quelli che richiedono uno sviluppo più accurato o miglioramenti.} dell'applicazione.
+Nelle iterazione 1 viene effettuata l'analisi dei requisiti per tutti i requisiti corrispondenti alle user stories che ne fanno parte; vengono esplicitati i casi di test; vengono sviluppati alcuni modelli, in particolare i modelli strutturali (modello dei dati e diagramma delle classi) e i modelli comportamentali (diagramma di sequenza), migliorando e ridefinendo, se necessario, i modelli dell'iterazione precedente; vengono, inoltre, mostrati alcuni dettagli di implementazione corrispondenti a porzioni di codice; infine vengono mostrati gli screenshot dell'applicazione.\\
 
 \subsection{Analisi dei Requisiti}
 Nell'analisi dei requisiti, le \textit{user stories} vengono suddivise in task; i requisiti non funzionali vengono validati, migliorati e approfonditi.
@@ -227,8 +223,8 @@ Nell'analisi dei requisiti, le \textit{user stories} vengono suddivise in task; 
 %\caption{Sketch della prima iterazione, I\label{sketch1iterazione}}
 %\end{figure}
 \subsubsection{Requisiti funzionali}
-In questa iterazione, come già specificato prima, sono sviluppate le user stories 1,2 e 3 (fig. \ref{userstoriestableprimaiterazione}). 
-\begin{figure}
+In questa iterazione, come già specificato prima, sono sviluppate le user stories 1,2 e 3 (fig. \ref{userstoriestableprimaiterazione}). \\
+\begin{figure}[h!]
 \begin{center}
 \begin{tabular}[c]{|c|p{7cm}|c|c|}
 \hline
@@ -343,10 +339,10 @@ Sono quindi sviluppati i seguenti test di accettazione:
 \end{enumerate}
 
 
-\subsection{Modelli architetturali}
-\subsubsection{Modello dei dati}
-
-\paragraph{Client}
+\subsection{Modellazione}
+\subsubsection{Modelli strutturali}
+\paragraph{Modello dei dati}
+\subparagraph{Client}
 Nell'iterazione 1, il client gestisce tre tipologie di dati:
 \begin{itemize}
 \item \textbf{Punto di interesse}
@@ -359,14 +355,13 @@ Per cui abbiamo un modello dei dati che può essere sintetizzato come in fig. \r
 \caption{Modello dei dati prima iterazione\label{datamodel1iterazione}}
 \end{figure}
 
-%\paragraph{Server}
-%La base di dati ospitata dal server e su cui è operato il mapping è costituita da quattro tabelle, come in fig. \ref{phisicaldatamodel1iterazione}.
-%
-%\begin{figure}
-%\includegraphics[scale=0.55]{imgs/model/datamodeldiagram1.png} 
-%\caption{Modello dei dati fisici prima iterazione\label{phisicaldatamodel1iterazione}}
-%\end{figure}
-\subsection{Wireframe}
+\paragraph{Diagramma delle classi}
+
+\subsubsection{Modelli comportamentali}
+\paragraph{Diagramma di sequenza}
+\subsection{Implementazione}
+
+\subsection{Screenshot}
 
 
 
@@ -455,7 +450,6 @@ Cliccare sull'icona rappresentante il punto di interesse scelto.
 \end{enumerate}
 \end{enumerate}
 \item Verificare invio feedback
-\item Verificare visualizzazione feedback
 \begin{enumerate}
 \item Assicurarsi che sulla mappa siano visibili i punti di interesse.\\
 Assicurarsi della presenza di una connessione dati attiva.\\
@@ -463,7 +457,7 @@ Cliccare sull'icona rappresentante il punto di interesse scelto.
 \begin{enumerate}
 \item Verificare la visualizzazione di un popup con una voce "inserisci feedback".
 \item Verificare la possibilità di cliccare sulla voce "inserisci feedback".
-\item Verificare la visualizzazione sul display di un form per l'inserimento del feedback.
+\item Verificare la visualizzazione sul display di un form perd l'inserimento del feedback.
 \item Verificare la possibilità di cliccare sul controllo contenete le cinque stelle.
 \item Verificare la possibilità di inserire contenuti nella casella testo.
 \item Verificare la possibilità di premere il pulsante "invia" per inviare il feedback.
@@ -472,8 +466,29 @@ Cliccare sull'icona rappresentante il punto di interesse scelto.
 \end{enumerate}
 
 
-\subsection{Modelli architetturali}
-\subsection{Wireframe}
+\subsection{Modellazione}
+\subsubsection{Modelli strutturali}
+\paragraph{Modello dei dati}
+\subparagraph{Client}
+Nell'iterazione 1, il client gestisce tre tipologie di dati:
+\begin{itemize}
+\item \textbf{Punto di interesse}
+\item \textbf{Tipologia}
+\item \textbf{Posizione}
+\end{itemize}
+Per cui abbiamo un modello dei dati che può essere sintetizzato come in fig. \ref{datamodel1iterazione}.
+\begin{figure}
+\includegraphics[scale=0.55]{imgs/model/DataModel1.png} 
+\caption{Modello dei dati prima iterazione\label{datamodel1iterazione}}
+\end{figure}
+
+\paragraph{Diagramma delle classi}
+
+\subsubsection{Modelli comportamentali}
+\paragraph{Diagramma di sequenza}
+\subsection{Implementazione}
+
+\subsection{Screenshot}
 
 
 \clearpage
@@ -505,8 +520,29 @@ Oltre ai requisiti non funzionali già descritti nelle precedenti iterazioni, pe
 \end{itemize}
 
 \subsection{Casi di Test}
-\subsection{Modelli architetturali}
-\subsection{Wireframe}
+\subsection{Modellazione}
+\subsubsection{Modelli strutturali}
+\paragraph{Modello dei dati}
+\subparagraph{Client}
+Nell'iterazione 1, il client gestisce tre tipologie di dati:
+\begin{itemize}
+\item \textbf{Punto di interesse}
+\item \textbf{Tipologia}
+\item \textbf{Posizione}
+\end{itemize}
+Per cui abbiamo un modello dei dati che può essere sintetizzato come in fig. \ref{datamodel1iterazione}.
+\begin{figure}
+\includegraphics[scale=0.55]{imgs/model/DataModel1.png} 
+\caption{Modello dei dati prima iterazione\label{datamodel1iterazione}}
+\end{figure}
+
+\paragraph{Diagramma delle classi}
+
+\subsubsection{Modelli comportamentali}
+\paragraph{Diagramma di sequenza}
+\subsection{Implementazione}
+\subsection{Screenshot}
+
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

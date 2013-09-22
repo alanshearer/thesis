@@ -14,32 +14,6 @@ localizzazione, di mapping e le architetture.
  RISCRIVERE!!!!
 
 
-
-
-
-
-
-\section{Il paradigma REST}
-Representational state transfer (REST)\footnote{Il paradigma REST è stato introdotto nel 2000 nella tesi di dottorato di Roy Fielding, reperibile all'indirizzo \emph{\url{http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm}}} è un tipo di architettura software per i sistemi di ipertesto distribuiti come il World Wide Web.
-Esso si riferisce ad un insieme di principi di architetture di rete, i quali delineano come le risorse sono definite e indirizzate. Il termine è spesso usato nel senso di descrivere ogni semplice interfaccia che trasmette dati su HTTP senza un livello opzionale come SOAP o la gestione della sessione tramite i cookie.
-
-Le applicazioni basate sui principi REST, spesso definite "RESTful", usano richieste HTTP per inviare dati (creare o aggiornare), leggere dati (eseguire query) e cancellare dati.
-
-Nel dettaglio, lo stile architetturale di REST, rappresentato in figura \ref{restimage}, consiste di un lato client e un lato server: i client inviano richieste ai server; i server elaborano tali richieste e restituiscono ai client i risultati delle elaborazioni.
-Richieste e risposte si basano sul trasferimento di rappresentazioni di \textbf{risorse}.
-
-L'esistenza delle risorse è un concetto importante in REST, in quanto esse sono fonti di informazioni a cui si può accedere tramite un identificatore globale (un URI). Per utilizzare le risorse, le componenti di una rete (client e server) comunicano attraverso una interfaccia standard (ad es. HTTP) e si scambiano rappresentazioni di queste risorse (il documento che trasmette le informazioni).
-\\
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.7]{imgs/rest_architecture.png} 
-\caption{Modello di architettura REST\label{restimage}}
-\end{center}
-\end{figure}
-\\
-Un numero qualsiasi di connettori (client, server, cache, tunnel ecc.) può mediare la richiesta, ma ogni connettore interviene senza conoscere la “storia passata” delle altre richieste(stateless). Di conseguenza una applicazione può interagire con una risorsa conoscendo due cose: l'identificatore della risorsa e l'azione richiesta.
-L'applicazione deve conoscere il formato dell'informazione (rappresentazione) restituita, tipicamente un documento HTML, XML o JSON, ma potrebbe essere anche un'immagine o qualsiasi altro contenuto.
-
 \section{Serializzazione}
 La serializzazione è un processo  per salvare un oggetto in un supporto di memorizzazione lineare o per trasmetterlo su una connessione di rete.
 Essa può essere realizzata in modalità binaria o testuale.
@@ -133,7 +107,7 @@ I tag XML possono contenere informazioni interne che vengono definite \textit{at
 Oltre alle direttive di elaborazione, in un file XML è possibile individuare i commenti, racchiusi tra le sequenze di caratteri \textbf{<!--} e \textbf{-->}. Questi possono trovarsi in qualsiasi punto del documento, ed il testo contenuto non viene elaborato dal parser.
 
 
-\begin{figure}
+\begin{figure}[h]
 \lstset{language=MYXML}
 \begin{lstlisting}
 <! ELEMENT persona (nome, cognome)>
@@ -331,6 +305,147 @@ JSON è caratterizzato dalla semplicità di rappresentazione delle strutture dat
 
 YAML ha caratteristiche aggiuntive rispetto a JSON, quali l'estensibilità dei tipi, la rappresentazione di stringhe senza apici, gli anchors e gli aliases. Anche YAML risulta molto adatto alle applicazioni web-based.\\
 XML ha più vincoli di YAML e JSON, poichè è nato per essere compatibile con SGML, ma risulta più adatto alla descrizione di strutture dati e presenta uno spettro di utilizzo più vasto.
+
+\section{Web Service}
+Un \textit{Web Service} è, secondo la definizione data dal \textit{W3C}, un sistema software progettato per supportare l'interoperabilità tra diversi elaboratori su di una medesima rete ovvero in un contesto distribuito. L'interoperabilità è ottenuta associando all'applicazione un'interfaccia software (descritta in formato automaticamente elaborabile, ad esempio il Web Services Description Language), che espone all'esterno i servizi associati e utilizzando la quale altri sistemi possono interagire con l'applicazione stessa, attivando le operazioni descritte nell'interfaccia tramite appositi messaggi di richiesta.
+Tali messaggi sono formattati secondo gli standard XML ed incapsulati e trasportati tramite i protocolli web (di solito HTTP), da cui il nome web service. Un esempio di trasporto è in figura \ref{webservice}.
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1]{imgs/webservice.png} 
+\caption{Scambio messaggi in un Web Service\label{webservice}}
+\end{center}
+\end{figure}
+I \textit{Web Service} hanno ridefinito nel tempo il modo in cui viene utilizzato il Web, che è visto non più come strumento di pubblicazione e consultazione di pagine statiche, ma anche e soprattutto come strumento per elaborare dati, interagire, integrare le applicazioni e creare business.
+Questa nuova generazione di applicazioni internet consente ai privati di accedere a servizi studiati appositamente per le loro esigenze, ed alle aziende di comunicare e gestire i rapporti con clienti, partner e fornitori in modo semplice e immediato.
+L'accesso ai Web Service è possibile da qualunque dispositivo in grado di interagire con la rete, ovvero PC, smartphone, palmari o notebook.\\
+Un Web Service può essere scritto in qualsiasi linguaggio di programmazione e, come tutte le applicazioni web, ha la caratteristica fondamentale di trasmettere informazioni in formato testuale attraverso protocolli di tipo request-reply (HTTP).
+Solitamente, un Web Service comunica con i browser tramite pagine HTML, incapsulate all'interno di una risposta HTTP; diversamente, nella comunicazione tra Web Service o tra Web Service e applicazioni le informazioni sono scambiate in maniera strutturata (cioè capaci di autodescriversi in modo da essere comprensibili sia ad un agente software che ad un umano).
+I formati di descrizione sono naturalmente i formati di serializzazione dei dati trattati precedentemente, ovvero XML, JSON e YAML, la cui caratteristica principale è quella di essere testi semplici da cui estrarre informazioni tramite il parsing.\\
+I protocolli per i web service utilizzano tre architetture diverse:
+\begin{itemize}
+\item \textbf{RPC oriented};
+\item \textbf{Message oriented};
+\item \textbf{REST}.
+\end{itemize}
+\subsection{RPC oriented}
+L'architettura RPC oriented è basata sul concetto ri Remote Procedure Call dei middleware tradizionali.
+Quindi, il client invia al server una richiesta, contenente il nome della procedura remota da invocare e i parametri, usando l'operazione POST del protocollo HTTP; Il server invia il risultato al client come risposta HTTP.
+\subsubsection{XML-RPC}
+Il primo protocollo specificamente sviluppato per i Web Service è stato \textit{XML-RPC}, in cui la richiesta e la risposta del messaggio sono formulate in linguaggio XML.
+XML-RPC sfrutta la disponibilità di parser XML su tutte le principali piattaforme e la facilità con cui si possono generare documenti XML.
+Le principali carenze di XML-RPC sono l'assenza di meccanismi per la gestione di tipi di dato non supportati; il mancato supporto nativo di funzionalità avanzate come autenticazione e gestione delle transazioni; mancanza di definizione formale delle interfacce delle procedure remote, per cui eventuali errori o incongruenze sono scoperti solo a tempo di esecuzione.
+Per ovviare a tali limiti è stato introdotto \textbf{SOAP}
+\subsubsection{SOAP}
+Acronimo di \textit{Simple Object Access Protocol}, SOAP (\emph{\url{www.w3.org/TR/soap/}}) è basato su XML ed è accattato come standard dal consorzio W3C.
+SOAP è supportato dai principali ambienti di sviluppo e ha la caratteristica di separare il formato dei messaggi dal modo in cui sono veicolati attraverso un protocollo già esistente. 
+SOAP può utilizzare protocolli diversi da HTTP, come SMTP.
+I vantaggi dell'utilizzo di SOAP, rispetto ad XML-RPC sono prevalentemente nella versatilità, dal momento che SOAP consente di estendere l'insieme dei tipi da usare come parametri e valori di ritorno e consente di estendere il protocollo stesso al fine di aggiungere funzionalità come la sicurezza o la gestione delle transizioni senza perdere l'interoperabilità.
+Per la definizione formale dell'interfaccia, SOAP ricorre a \textbf{WSDL}.
+\subsubsection{WSDL}
+WSDL, ovvero \textit{Web Service Description Language} è un linguaggio per definire le interfacce dei Web Service basati su SOAP.
+Anch'esso è uno standard W3C ed è naturalmente basato su XML.
+Un documento WSDL contiene una specifica "machine-readable" di:
+\begin{itemize}
+\item punti di accesso ai web service
+\item protocolli utilizzati
+\item operazioni disponibili, con i rispettivi parametri di ritorno
+\item tipi non predefiniti usati dalle operazioni
+\end{itemize}
+Anche se in teoria un documento WSDL dovrebbe essere in un formato leggibile e modificabile da un essere umano, in pratica il formato è piuttosto complesso e si rende necessaria la generazione del documento tramite appositi tool e librerie, offerti dai principali ambienti di sviluppo.
+Tipicamente il WSDL è disponibile online sul sito che ospita il web service ed è utilizzato a tempo di esecuzione sia per verificare che non ci siano modifiche dell'interfaccia server, sia per creare le classi che rappresentano la comunicazione col client.
+Un esempio di WSDL è riportato in figura \ref{wsdlimage}.
+\begin{figure}[h!]
+\begin{center}
+\lstset{language=MYXML}
+\begin{lstlisting}
+<?xml version="1.0"?> 
+<wsdl:description xmlns:wsdl="http://www.w3.org/ns/wsdl"
+  xmlns:wsoap= "http://www.w3.org/ns/wsdl/soap"
+  xmlns:hy="http://www.herongyang.com/Service/"
+  targetNamespace="http://www.herongyang.com/Service/">
+
+  <wsdl:documentation>
+    Hello_WSDL_20_SOAP.wsdl
+    Copyright (c) 2009 by Dr. Herong Yang, herongyang.com
+    All rights reserved
+  </wsdl:documentation>
+
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      targetNamespace="http://www.herongyang.com/Service/">
+      <xsd:element name="Hello" type="xsd:string"/>    
+      <xsd:element name="HelloResponse" type="xsd:string"/>    
+    </xsd:schema>    
+  </wsdl:types>
+
+  <wsdl:interface name="helloInterface" >
+    <wsdl:operation name="Hello" 
+      pattern="http://www.w3.org/ns/wsdl/in-out" 
+      style="http://www.w3.org/ns/wsdl/style/iri">
+      <wsdl:input messageLabel="In" 
+        element="hy:Hello" />
+      <wsdl:output messageLabel="Out" 
+        element="hy:HelloResponse" />
+    </wsdl:operation>
+  </wsdl:interface>
+
+  <wsdl:binding name="helloBinding" 
+    interface="hy:helloInterface"
+    type="http://www.w3.org/ns/wsdl/soap"
+    wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+    <wsdl:operation ref="hy:Hello" 
+      wsoap:mep="http://www.w3.org/2003/05/soap/mep/soap-response"/>
+  </wsdl:binding>
+
+  <wsdl:service name="helloService" 
+    interface="hy:helloInterface">
+    <wsdl:endpoint name="helloEndpoint" 
+      binding="hy:helloBinding"
+address="http://www.herongyang.com/Service/Hello_SOAP_12.php"/>
+  </wsdl:service>
+
+</wsdl:description>
+\end{lstlisting}
+\caption{Esempio di documento WSDL\label{wsdlimage}}
+\end{center}
+\end{figure}
+La combinazione SOAP+WSDL consente di realizzare web service con uno sforzo di programmazione contenuto, sia lato client che lato server e, grazie all'uso del servizio \textbf{UDDI}, garantisce ed aumenta l'interoperabilità.
+\subsubsection{UDDI}
+UDDI (\textit{Universal Description Discovery and Integration}) è un web service basato su SOAP+WSDL che realizza un repository di descrizioni WSDL con funzioni di pubblicazione e ricerca di web service in base ad una serie di metadati.
+Lo standard UDDI originariamente ipotizzava lo sviluppo di un \textit{Universal Business Registry} pubblivo che consentisse una ricerca globale dei web service, ma attualmente l'idea dell'UBR è stata abbandonata ed il servizio UDDI è utilizzato soprattutto in abito intranet come repository centralizzato di documenti WSDL.
+\subsection{Message oriented}
+In un'architettura di servizi Message oriented le diverse applicazioni si scambiano messaggi unidirezionali che hanno le seguenti caratteristiche:
+\begin{itemize}
+\item il focus è sul messaggio più che sull'operazione;
+\item se una richiesta genera una risposta, questa è inviata con un messaggio indipendente dal messaggio di richiesta;
+\item il servizio non è tenuto a elaborare i messaggi che riceve in ordine di ricezione;
+\item è sfumata la distinzione tra client e server: l'architettura è peer-to-peer.
+\end{itemize}
+
+I vantaggi dell'utilizzo di un'architettura Message oriented sono il disaccoppiamento anche temporale tra client e server, infatti, se il server non è momentaneamente disponibile, il messaggio può essere mantenuto in una coda; la maggiore flessibilità nella distribuzione (smistamento intelligente dei messaggi tra più server); flessibilità nell'ordine delle operazioni (priorità diverse per i messaggi).
+
+\subsection{REST}
+Representational state transfer (REST)\footnote{Il paradigma REST è stato introdotto nel 2000 nella tesi di dottorato di Roy Fielding, reperibile all'indirizzo \emph{\url{http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm}}} è un tipo di architettura software per i sistemi di ipertesto distribuiti come il World Wide Web.
+Esso si riferisce ad un insieme di principi di architetture di rete, i quali delineano come le risorse sono definite e indirizzate. Il termine è spesso usato nel senso di descrivere ogni semplice interfaccia che trasmette dati su HTTP senza un livello opzionale come SOAP o la gestione della sessione tramite i cookie.
+
+Le applicazioni basate sui principi REST, spesso definite "RESTful", usano richieste HTTP per inviare dati (creare o aggiornare), leggere dati (eseguire query) e cancellare dati.
+
+Nel dettaglio, lo stile architetturale di REST, rappresentato in figura \ref{restimage}, consiste di un lato client e un lato server: i client inviano richieste ai server; i server elaborano tali richieste e restituiscono ai client i risultati delle elaborazioni.
+Richieste e risposte si basano sul trasferimento di rappresentazioni di \textbf{risorse}.
+
+L'esistenza delle risorse è un concetto importante in REST, in quanto esse sono fonti di informazioni a cui si può accedere tramite un identificatore globale (un URI). Per utilizzare le risorse, le componenti di una rete (client e server) comunicano attraverso una interfaccia standard (ad es. HTTP) e si scambiano rappresentazioni di queste risorse (il documento che trasmette le informazioni).
+\\
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{imgs/rest_architecture.png} 
+\caption{Modello di architettura REST\label{restimage}}
+\end{center}
+\end{figure}
+\\
+Un numero qualsiasi di connettori (client, server, cache, tunnel ecc.) può mediare la richiesta, ma ogni connettore interviene senza conoscere la “storia passata” delle altre richieste(stateless). Di conseguenza una applicazione può interagire con una risorsa conoscendo due cose: l'identificatore della risorsa e l'azione richiesta.
+L'applicazione deve conoscere il formato dell'informazione (rappresentazione) restituita, tipicamente un documento HTML, XML o JSON, ma potrebbe essere anche un'immagine o qualsiasi altro contenuto.
+
+
 
 
 
