@@ -206,9 +206,6 @@ Iterazione & User story\\ \hline
 
 \clearpage
 
-
-
-
 \section{Iterazione 1}
 Nelle iterazione 1 viene effettuata l'analisi dei requisiti per tutti i requisiti corrispondenti alle user stories che ne fanno parte; vengono esplicitati i casi di test; vengono sviluppati alcuni modelli, in particolare i modelli strutturali (modello dei dati e diagramma delle classi) e i modelli comportamentali (diagramma di sequenza), migliorando e ridefinendo, se necessario, i modelli dell'iterazione precedente; vengono, inoltre, mostrati alcuni dettagli di implementazione corrispondenti a porzioni di codice; infine vengono mostrati gli screenshot dell'applicazione.\\
 
@@ -242,7 +239,7 @@ N. & User story & Peso & Priorità\\
 \end{figure}
 \clearpage
 
-Le tre user stories hanno i seguenti tasks collegati:\\
+Considerando le tre user stories, possiamo definire i seguenti task che caratterizzeranno la prima iterazione:\\
 \textbf{Lato client}
 \begin{itemize}
 \item \textbf{creazione form con mappa e pulsanti di utility};
@@ -298,7 +295,7 @@ Sono quindi sviluppati i seguenti test di accettazione:
 
 \item Verificare il funzionamento del pulsante di posizionamento.
 \begin{enumerate}
-\item Spegnere il dispositivo di puntamento o assicurarsi di mancanza di ricezione del segnale GPS. \\Cliccare sul pulsante per ottenere la posizione attuale. \\Verificare il messaggio di allerta che indica l'assenza di dispositivi di posizionamento e chiede di cliccare per aprire la form delle propietà del gps. 
+\item Spegnere il dispositivo di puntamento o assicurarsi di mancanza di ricezione del segnale GPS. \\Cliccare sul pulsante per ottenere la posizione attuale. \\Verificare il messaggio di allerta che indica l'assenza di dispositivi di posizionamento e chiede di cliccare per aprire la form delle propietà del GPS. 
 \begin{enumerate}
 \item Verificare la possibilità di chiudere il messaggio di allerta.
 \item Verificare che cliccando si apra la form delle proprietà del posizionamento.
@@ -393,7 +390,24 @@ N. & User story & Peso & Priorità\\
 \caption{Tabella di stima delle user stories della seconda iterazione\label{userstoriestablesecondaiterazione}}
 \end{center}
 \end{figure}
-\clearpage
+
+Considerando queste quattro user stories, possiamo definire i seguenti task che caratterizzano la seconda iterazione:\\
+\textbf{Lato client}
+\begin{itemize}
+\item \textbf{realizzazione form per visualizzazione di informazioni sul punto di interesse};
+\item \textbf{realizzazione servizio per la gestione della posizione sulla mappa};
+\item \textbf{connessione al servizio di lettura feedback};
+\item \textbf{menu contestuale con visualizzazione feedback};
+\item \textbf{connessione al servizio di scrittura feedback};
+\item \textbf{realizzazione form per inserimento feedback}.
+\end{itemize}
+
+\textbf{Lato server}
+\begin{itemize}
+\item \textbf{creazione servizio per la lettura dei feedback};
+\item \textbf{creazione servizio per la scrittura dei feedback}.
+\end{itemize}
+
 
 \subsubsection{Requisiti non funzionali}
 Oltre ai requisiti non funzionali già elencati, per l'applicazione si aggiungono i seguenti requisiti:
@@ -498,7 +512,7 @@ Per cui abbiamo un modello dei dati che può essere sintetizzato come in fig. \r
 \subsection{Analisi dei requisiti}
 \subsubsection{Requisiti funzionali}
 Nell'iterazione 3 è sviluppata la user story 8 (fig. \ref{userstoriestableterzaiterazione}). 
-\begin{figure}
+\begin{figure}[h!]
 \begin{center}
 \begin{tabular}[c]{|c|p{6cm}|c|c|}
 \hline
@@ -511,7 +525,19 @@ N. & User story & Peso & Priorità\\
 \end{center}
 \end{figure}
 
-\clearpage
+Considerando tale user story, possiamo definire i seguenti task che caratterizzano la terza iterazione:\\
+\textbf{Lato client}
+\begin{itemize}
+\item \textbf{realizzazione form per visualizzazione dell'itinerario};
+\item \textbf{connessione al servizio per la gestione della posizione}.
+\end{itemize}
+
+\textbf{Lato server}
+\begin{itemize}
+\item \textbf{realizzazione servizio per la gestione della posizione};
+\item \textbf{realizzazione servizio per la creazione del feedback}.
+\end{itemize}
+
 \subsubsection{Requisiti non funzionali}
 Oltre ai requisiti non funzionali già descritti nelle precedenti iterazioni, per le funzionalità previste in questa fase, si può aggiungere:
 \begin{itemize}
